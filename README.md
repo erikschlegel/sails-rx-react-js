@@ -8,8 +8,8 @@ This flavor of SailsJS is packaged with a Babel Grunt task, which converts all E
 You can have a modern ES6 based full stack site up and running in minutes after cloning this repo, and running the 4 instalation steps below.
 
 Future development: <br>
- 1) Build a Waterline ORM adapter for Azure structured and unstrcutured data storage.
- 2) Integrate Felix Rieseberg's Azure Sails Deploy repo https://github.com/felixrieseberg/sails-deploy-azure
+ 1) Build a Waterline ORM adapter for Azure structured and unstrcutured data storage.<br>
+ 2) Integrate Felix Rieseberg's Azure Sails Deploy repo https://github.com/felixrieseberg/sails-deploy-azure<br>
  3) Integrate Flipboards react canvas for High performance <canvas> rendering for React components
 
 # Pre-requisites: This install assumes you have npm and bower installed.
