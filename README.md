@@ -25,6 +25,7 @@ Clone this repo and download with npm the packages:
 
   sudo npm -g install sails
   sudo npm install --global babel
+  bower install
 
   sails lift
 
