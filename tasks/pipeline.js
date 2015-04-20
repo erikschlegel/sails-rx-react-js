@@ -17,7 +17,7 @@ var path = require('path')
 var browserifyMainFile = 'assets/js/app.js';
 
 //This is the path which tyhe bablify task will look to for transcompiling ES6->ES5
-var es6To5SrcJSDir     = 'assets/js/es6+/';
+var es6To5SrcJSDir     = 'api/components/es6+';
 var es6To5BuildPath    = 'assets/js/build/';
 var appRootDir = browserifyMainFile.substring(0, browserifyMainFile.lastIndexOf('/'));
  

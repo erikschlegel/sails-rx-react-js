@@ -6,6 +6,7 @@ var React = require('react');
 
 var Title = require('./build/react/title');
 var Timer = require('./build/react/timer');
+var Wiki = require('./build/react/WikiAutocompleteSearch');
 
 React.render(
   <Title name="Erik Schlegel"/>,
@@ -16,3 +17,5 @@ React.render(
    <Timer />,
    document.getElementById('timer-component')
  );
+
+ React.render(<Wiki />, document.getElementById('wikiSearch'));

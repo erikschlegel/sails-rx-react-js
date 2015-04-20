@@ -30,6 +30,7 @@
     "react": "^0.13.0",
     "react-bootstrap": "^0.20.3",
     "rx": "^2.3.11",
+    "rx-dom": "*",
     "rx-react": "0.2.0",
     "sails": "~0.10.5",
     "sails-disk": "~0.10.0"
