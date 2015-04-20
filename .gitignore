@@ -69,7 +69,7 @@ config/local.js
 node_modules
 bower_components
 
-
+assets/js/build
 
 
 ################################################
