@@ -3,7 +3,7 @@ sails-rx-react-js
 
 A ES 6 ReactJS themed starter site running on the SailsJS platform, which bootstraps you with ReactJS, RXJS, RxReact, Twitter Bootstrap 3, Font Awesome, Babel and Browserify. 
 
-This flavor of SailsJS is packaged with a Babel Grunt task, which converts all ECMA 6 scripts into ECMA 5 files, eleviating ES6 browser compatibility concerns.
+This SailsJS boilerplate repo comes packaged with a Babel Grunt task, which converts all ECMA 6 scripts into ECMA 5 files, eleviating ES6 browser compatibility concerns.
 
 You can have a modern ES6 based full stack site up and running in minutes after cloning this repo, and running the 4 instalation steps below.
 
