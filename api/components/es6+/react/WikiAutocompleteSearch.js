@@ -27,15 +27,19 @@ class WikiAutocompleteSearch extends RxReact.Component {
   render() {
     let results = this.state && this.state.results || [];
     return (
-      <div class="input-group">
-        <div>Start Typing</div>
-        <span id="sizing-addon2" class="input-group-addon"><i class="fa fa-search"></i></span>
-        <input type="text" aria-describedby="sizing-addon2" class="form-control" id="searchtext" onKeyUp={this.keyup} placeholder="Wikipedia SearcH"/>
-        <ul id="results">{
+     <div>
+      <div className="input-group">
+        <span id="sizing-addon2" className="input-group-addon"><i className="fa fa-search fa-fw"></i></span>
+        <input type="text" aria-describedby="sizing-addon2" className="form-control" id="searchtext" onKeyUp={this.keyup} placeholder="Wikipedia SearcH"/>
+        
+      </div>
+      <div className="dropdown">
+        <ul id="results" className="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">{
           results.map((result, index) => 
-            <li key={index}>{result}</li>
+            <li role="presentation" key={index}><a role="menuitem" tabindex="-1" href="#">{result}</a></li>
           )
         }</ul>
+      </div>
       </div>
     );
   }
