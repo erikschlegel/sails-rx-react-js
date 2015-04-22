@@ -20,10 +20,9 @@ class WikiAutocompleteCtrl extends TypeAheadCtrl {
 	serviceResultsMapCB(results){
 		let response  = [];
         results.response[1].map((name, index) => {
-        	                                      let maxCharacterLgth = 40, desc = results.response[2][index];
-        	                                      response.push({"name": name, "description" : desc.length>maxCharacterLgth?desc.substring(0, maxCharacterLgth):desc, "url" : results.response[3][index]}));
-    											 }
-        
+        	                                      let maxCharacterLgth = 250, desc = results.response[2][index];
+        	                                      response.push({"name": name, "description" : desc.length>maxCharacterLgth?desc.substring(0, maxCharacterLgth):desc, "url" : results.response[3][index]});
+    											 })
         return {results: response};
 	}
 }
