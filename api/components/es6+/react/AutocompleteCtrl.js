@@ -120,20 +120,28 @@ class AutocompleteCtrl extends RxReact.Component {
 
     render() {
       let results = this.state && this.state.results || [];
-      
+      let state = this.state;
+
       return (
        <div>
         <div className="input-group">
           <span id="sizing-addon2" className="input-group-addon"><i className="fa fa-search fa-fw"></i></span>
           <input type="text" aria-describedby="sizing-addon2" className="form-control" id="searchtext" onKeyUp={this.keyup} onFocus={this.onFocus.bind(this)} onBlur={this.onBlur.bind(this)} onKeyDown={this.onKeyDown.bind(this)} placeholder={this.placeholder}/>
         </div>
-        <div className="dropdown">
+        <div className={'autocomplete__result ' + (state && state.hideList && 'hide')}>
+        <p className="autocomplete__title">
+                <span>Top Results</span>
+        </p>
         {results && results.length > 0
           ? (
-              <ul ref="list" id="results" className="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+              
+              <ul ref="list">
               {
                 results.map((result, index) => 
-                  <li role="presentation" key={index}><a role="menuitem" tabindex="-1" href="#">{result}</a></li>
+                  <li onMouseDown={this.onSelect.bind(this, result)} data-value={result.name} key={index} className={state.highlightedIndex === index && 'active'}>
+                       <a role="menuitem" tabindex="-1" href="#">{result.name}</a>
+                       <span className="menu-item-description">{result.description}</span>
+                  </li>
                 )
               }</ul>
              )

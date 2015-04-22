@@ -1,0 +1,141 @@
+@select-text-color:                #333;
+@select-input-border-color:        #ccc;
+@select-input-border-radius:       4px;
+@select-input-placeholder:         #aaa;
+@select-input-border-focus:        #08c; // blue
+
+@select-padding-vertical:          8px;
+@select-padding-horizontal:        10px;
+
+@select-arrow-color:               #999;
+@select-arrow-width:               5px;
+
+@select-menu-zindex:               1000;
+@select-menu-max-height:           200px;
+
+@select-option-color:              lighten(@select-text-color, 20%);
+@select-option-focused-color:      @select-text-color;
+@select-option-focused-bg:         #f2f9fc; // pale blue
+
+@select-noresults-color:           lighten(@select-text-color, 40%);
+
+@select-clear-color:               #999;
+@select-clear-hover-color:         #c0392b; // red
+
+@select-item-border-radius:        2px;
+@select-item-gutter:               2px;
+@select-item-padding-vertical:     3px;
+@select-item-padding-horizontal:   5px;
+@select-item-font-size:            1em;
+@select-item-color:                #08c; // pale blue
+@select-item-bg:                   #121314;
+@select-item-border-color:         darken(@select-item-bg, 10%);
+@select-item-hover-color:          darken(@select-item-color, 5%); // pale blue
+@select-item-hover-bg:             darken(@select-item-bg, 5%);
+
+@menu-area-background-color:       #121314;
+@menu-item-font:                    proxima_nova,'Helvetica Neue',Helvetica,Arial,sans-serif;
+@menu-item-font-color:              #88898c;
+@menu-item-font-size:              14px;
+@menu-item-line-height:            24px;
+@menu-item-background-color:       #302E2F;
+
+.autocomplete input:focus {
+    border-color: #09c;
+}
+
+.loading .autocomplete__result {
+    color: #bbb;
+}
+
+.border-bottom-radius(@radius) {
+   border-bottom-right-radius: @radius;
+   border-bottom-left-radius: @radius;
+}
+
+.autocomplete__result {
+    position: relative;
+    display: table;
+    width: 100%;
+    .border-bottom-radius( @select-input-border-radius );
+	background-color: @menu-area-background-color;
+	border: 1px solid @select-input-border-color;
+	border-top-color: mix(white, @select-input-border-color, 50%);
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+	box-sizing: border-box;
+	margin-top: -1px;
+	max-height: @select-menu-max-height;
+	z-index: @select-menu-zindex;
+	-webkit-overflow-scrolling: touch;
+}
+
+.AutocompleteBorder {
+	border: 1px solid @select-input-border-color;
+	border-top-color: mix(white, @select-input-border-color, 50%);
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.autocomplete__result ul {
+    width: 100%;
+    padding: 18px;
+    margin: 0;
+    max-height: 200px;
+    overflow: auto;
+}
+
+.autocomplete__title { 
+  color: #88898c!important;
+  text-transform: uppercase;
+  margin: 17px 0 2px;
+}
+
+.autocomplete__result li {
+    box-sizing: border-box;
+	cursor: pointer;
+	text-align: left;
+	display: block;
+	margin-bottom: 3px;
+	padding: @select-padding-vertical @select-padding-horizontal;
+	cursor: default;
+	padding-left: 10px;
+	font-family: @menu-item-font;
+  	font-size:   @menu-item-font-size;
+  	line-height: @menu-item-line-height;
+  	color: @menu-item-font-color;
+      background-color: #2e2f33!important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+
+	&:last-child {
+		.border-bottom-radius( @select-input-border-radius );
+	}
+	
+	&.is-focused {
+		background-color: @select-option-focused-bg;
+		color: @select-option-focused-color;
+	}
+}
+
+.menu-item-description{
+  color: #88898c!important;
+  overflow: hidden;
+  line-height:1;
+  margin-top:0;
+  margin-bottom:0;
+  word-wrap: break-word;
+  max-width: 550px;
+  vertical-align: top;
+  display: block;
+}
+
+.autocomplete__result li:hover {
+    background-color: #46484e!important;	
+}
+
+.autocomplete__result li.active {
+    background: #ddd;
+}
+
+.autocomplete__empty {
+    padding: 5px;
+}

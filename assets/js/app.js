@@ -6,7 +6,7 @@ var React = require('react');
 
 var Title = require('./build/react/title');
 var Timer = require('./build/react/timer');
-var Wiki = require('./build/react/WikiAutocompleteSearch');
+var Wiki = require('./build/react/WikiAutocompleteCtrl');
 
 React.render(
   <Title name="Erik Schlegel"/>,
