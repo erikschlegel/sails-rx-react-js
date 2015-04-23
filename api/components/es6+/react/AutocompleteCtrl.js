@@ -107,15 +107,27 @@ class AutocompleteCtrl extends RxReact.Component {
         this.resetListScroll();
         this.setState({ results: [], hideList: true, selected: item });
 
-        if (item)
-           this.searchInput.getDOMNode().value = item.label;
+        if(item)
+           this.refs.searchtext.getDOMNode().value = item.name;
     }
 
     highlight() { 
         if (!this.refs.list || this.state.highlightedIndex < 0) return; 
-        let $list = $(this.refs.list.getDOMNode()), $highlighted = $list.children().eq(this.state.highlightedIndex); 
-   
-        return $list.scrollTop($list.scrollTop() + $highlighted.position().top - $list.height() / 2 + $highlighted.height() / 2); 
+        
+        let elTop, elBottom, menuScrollTop, menuHeight;
+        let $el = $(this.refs.list.getDOMNode()).children().eq(this.state.highlightedIndex);
+        let $menu = $(this.refs.list.getDOMNode());
+        elTop = $el.position().top;
+        elBottom = elTop + $el.outerHeight(true);
+        menuScrollTop = $menu.scrollTop();
+        menuHeight = $menu.height() +
+          parseInt($menu.css('paddingTop'), 10) +
+          parseInt($menu.css('paddingBottom'), 10);
+
+        if (elTop < 0)
+          $menu.scrollTop(menuScrollTop + elTop);
+        else if (menuHeight < elBottom)
+          $menu.scrollTop(menuScrollTop + (elBottom - menuHeight));
     }
 
     render() {
@@ -126,7 +138,8 @@ class AutocompleteCtrl extends RxReact.Component {
        <div>
         <div className="input-group">
           <span id="sizing-addon2" className="input-group-addon"><i className="fa fa-search fa-fw"></i></span>
-          <input type="text" aria-describedby="sizing-addon2" className="form-control" id="searchtext" onKeyUp={this.keyup} onFocus={this.onFocus.bind(this)} onBlur={this.onBlur.bind(this)} onKeyDown={this.onKeyDown.bind(this)} placeholder={this.placeholder}/>
+          <input type="text" aria-describedby="sizing-addon2" className="form-control" ref="searchtext" onKeyUp={this.keyup} onFocus={this.onFocus.bind(this)} onBlur={this.onBlur.bind(this)} onKeyDown={this.onKeyDown.bind(this)} placeholder={this.placeholder}/>
+          {state && state.loading ? (<span className="input-group-addon" id="basic-addon2"><i className="fa fa-spinner fa-pulse" /></span>) : ""}
         </div>
         <div className={'autocomplete__result ' + (state && state.hideList && 'hide')}>
         <p className="autocomplete__title">
@@ -134,11 +147,10 @@ class AutocompleteCtrl extends RxReact.Component {
         </p>
         {results && results.length > 0
           ? (
-              
               <ul ref="list">
               {
                 results.map((result, index) => 
-                  <li onMouseDown={this.onSelect.bind(this, result)} data-value={result.name} key={index} className={state.highlightedIndex === index && 'active'}>
+                  <li onMouseDown={this.onSelect.bind(this, result)} label={result.name} key={index} className={state.highlightedIndex === index && 'highlighted'}>
                        <a role="menuitem" tabindex="-1" href="#">{result.name}</a>
                        <span className="menu-item-description">{result.description}</span>
                   </li>

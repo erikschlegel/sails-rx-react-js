@@ -102,7 +102,7 @@
   	font-size:   @menu-item-font-size;
   	line-height: @menu-item-line-height;
   	color: @menu-item-font-color;
-    background-color: #2e2f33!important;
+    background-color: #2e2f33;
     border: 1px solid @menu-item-font-color;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -133,7 +133,15 @@
     background-color: #46484e!important;	
 }
 
-.autocomplete__result li.active {
+.highlighted {
+    background-color: #46484e!important;  
+}
+
+.autocomplete__result li:active{
+    background-color: #46484e!important;
+}
+
+.autocomplete__result li:focus{
     background: #ddd;
 }
 
