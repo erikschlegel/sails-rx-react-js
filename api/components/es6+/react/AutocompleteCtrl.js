@@ -109,6 +109,10 @@ class AutocompleteCtrl extends RxReact.Component {
 
         if(item)
            this.refs.searchtext.getDOMNode().value = item.name;
+
+         //invoke implemented callback
+         this.selectItemImpl(item);
+         super.setState({focused: false});
     }
 
     highlight() { 

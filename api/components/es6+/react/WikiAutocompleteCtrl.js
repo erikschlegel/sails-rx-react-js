@@ -17,6 +17,12 @@ class WikiAutocompleteCtrl extends TypeAheadCtrl {
 		return Rx.DOM.jsonpRequest(Constants.wikiURl(searchString));
 	}
 
+	selectItemImpl(selectedItem){
+
+	  if($('#selectedContent') && selectedItem && selectedItem.url)
+		$('#selectedContent').html(`<object style="width:100%;height:100%;" data="${selectedItem.url}">`);
+	}
+
 	serviceResultsMapCB(results){
 		let response  = [];
         results.response[1].map((name, index) => {
