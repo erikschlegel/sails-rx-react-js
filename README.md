@@ -53,8 +53,6 @@ Clone this repo and download with npm the packages:
 
   sudo npm -g install sails
   sudo npm install --global babel-cli
-  sudo npm install --save-dev babel-preset-react
-  sudo npm install --save-dev babel-preset-es-2015
   
   bower install
 
